@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail_Quisioner;
 use App\Models\Quisioner;
 use Illuminate\Http\Request;
 use Laravolt\Indonesia\Facades\Province;
@@ -12,14 +13,21 @@ class LandingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-
         $quisioners = Quisioner::all();
 
+        $selectedQuisionerId = $request->input('quisioner'); // Mendapatkan nilai yang dipilih dari input 'quisioner'
 
-        return view('landing.landingpage', compact('quisioners'));
+        if ($selectedQuisionerId) {
+            $detailquisioners = Detail_Quisioner::where('quisioner_id', $selectedQuisionerId)->get();
+        } else {
+            $detailquisioners = Detail_Quisioner::all();
+        }
+
+        return view('landing.landingpage', compact('quisioners', 'detailquisioners'));
     }
+
 
 
     /**

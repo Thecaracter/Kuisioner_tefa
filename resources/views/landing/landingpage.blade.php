@@ -1,47 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Form Kepuasan Pelanggan</title>
-    <!-- Mengimpor Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <!-- CSS sendiri -->
-    <link rel="stylesheet" href="{{ asset('landingasset/css/style.css') }}">
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{ asset('landingasset/img/Polije.png') }}" alt="Logo 1" width="30" height="30"
-                    class="d-inline-block align-top">
-                <img src="{{ asset('landingasset/img/Sip.png') }}" alt="Logo 2" width="90" height="30"
-                    class="d-inline-block align-top">
-                <img src="{{ asset('landingasset/img/Blu.png') }}" alt="Logo 3" width="30" height="30"
-                    class="d-inline-block align-top">
-                <span class="ml-3">Form Kuisioner</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+@extends('layout.applanding')
+@section('title', 'Landing Page')
+@section('content')
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-8 mx-auto">
@@ -77,14 +36,16 @@
             <div class="col-md-12 mx-auto">
                 <div class="container">
                     <h2>Form Kuisioner</h2>
-                    <form>
+                    <form id="kuisionerForm">
                         <div class="form-group">
                             <label for="quisioner">Quisioner:</label>
-                            <select class="form-control" id="quisioner" name="quisioner">
+                            <select class="form-control" id="quisioner" name="quisioner" onchange="showQuestion()">
                                 @foreach ($quisioners as $quisioner)
                                     <option value="{{ $quisioner->id }}">{{ $quisioner->nama }}</option>
                                 @endforeach
                             </select>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Pilih</button>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered">
@@ -99,31 +60,43 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Sangat Tidak Puas</td>
-                                        <td>
-                                            <input type="radio" name="satisfaction" value="1">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="satisfaction" value="2">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="satisfaction" value="3">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="satisfaction" value="4">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="satisfaction" value="5">
-                                        </td>
-                                    </tr>
+                                    @foreach ($detailquisioners as $index => $item)
+                                        <tr>
+                                            <td>{{ $item->pertanyaan }}</td>
+                                            <td>
+                                                <input type="radio" name="satisfaction_{{ $index }}"
+                                                    value="1">
+                                            </td>
+                                            <td>
+                                                <input type="radio" name="satisfaction_{{ $index }}"
+                                                    value="2">
+                                            </td>
+                                            <td>
+                                                <input type="radio" name="satisfaction_{{ $index }}"
+                                                    value="3">
+                                            </td>
+                                            <td>
+                                                <input type="radio" name="satisfaction_{{ $index }}"
+                                                    value="4">
+                                            </td>
+                                            <td>
+                                                <input type="radio" name="satisfaction_{{ $index }}"
+                                                    value="5">
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                <span class="mr-2">Submit</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
 
@@ -131,6 +104,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
 
-</html>
+    <script>
+        function showQuestion() {
+            var dropdown = document.getElementById("quisioner");
+            var questionContainer = document.getElementById("questionContainer");
+            var selectedOption = dropdown.options[dropdown.selectedIndex];
+            var question = selectedOption.text; // Mendapatkan teks pertanyaan dari opsi yang dipilih
+
+            // Mengganti konten pada questionContainer dengan pertanyaan
+            questionContainer.innerHTML = "<h4>" + question + "</h4>";
+        }
+    </script>
+@endsection

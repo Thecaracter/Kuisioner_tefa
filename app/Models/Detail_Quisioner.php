@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Detail_Quisioner extends Model
 {
     use HasFactory;
+    protected $table = 'detail_quisioner';
+    protected $fillable = ['pertanyaan'];
+
+    public function quisioner()
+    {
+        return $this->belongsTo(Quisioner::class);
+    }
 }
