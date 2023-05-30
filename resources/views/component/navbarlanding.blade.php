@@ -28,7 +28,7 @@
     </div>
 </nav>
 
-<!-- Modal -->
+<!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -40,19 +40,68 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Formulir login -->
+                <!-- Login Form -->
                 <form>
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" class="form-control" id="loginUsername" placeholder="Enter username">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
                     </div>
+                    <button type="button" class="btn btn-primary" onclick="openRegisterModal()">Register</button>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Register Form -->
+                <form>
+                    <div class="form-group">
+                        <label for="registerUsername">Username</label>
+                        <input type="text" class="form-control" id="registerUsername" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" class="form-control" id="registerPassword"
+                            placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword"
+                            placeholder="Confirm password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="button" class="btn btn-primary" onclick="openLoginModal()">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openRegisterModal() {
+        $('#loginModal').modal('hide');
+        $('#registerModal').modal('show');
+    }
+
+    function openLoginModal() {
+        $('#registerModal').modal('hide');
+        $('#loginModal').modal('show');
+    }
+</script>
