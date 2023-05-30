@@ -17,6 +17,7 @@ class LandingController extends Controller
 
         $quisioners = Quisioner::all();
 
+
         return view('landing.landingpage', compact('quisioners'));
     }
 

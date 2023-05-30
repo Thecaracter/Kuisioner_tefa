@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('detail_quisioner', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pertanyaan');
+            $table->text('pertanyaan');
             $table->timestamps();
         });
 
