@@ -1,0 +1,160 @@
+/* Gaya untuk body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Gaya untuk navbar */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #2671c4;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+}
+
+.navbar-toggler-icon {
+    width: 25px;
+    height: 3px;
+    background-color: #2671c4;
+    display: block;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-toggler-icon:before,
+.navbar-toggler-icon:after {
+    content: '';
+    width: 25px;
+    height: 3px;
+    background-color: #2671c4;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler-icon:before {
+    transform: translateY(-8px);
+}
+
+.navbar-toggler-icon:after {
+    transform: translateY(8px);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.navbar-nav .nav-link {
+    color: #2671c4;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #215ca5;
+}
+
+/* Gaya untuk container form */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    margin-bottom: 20px;
+    color: #2671c4;
+    text-align: center;
+}
+
+/* Gaya untuk tabel */
+.table-responsive {
+    margin-bottom: 20px;
+}
+
+.table-bordered {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.table-bordered th,
+.table-bordered td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    vertical-align: middle;
+}
+
+.table-bordered th {
+    background-color: #2671c4;
+    color: #fff;
+}
+
+.table-bordered td {
+    background-color: #f8f8f8;
+}
+
+/* Gaya untuk tombol submit */
+.btn-primary {
+    background-color: #2671c4;
+    border-color: #2671c4;
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #215ca5;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 113, 196, 0.5);
+    outline: none;
+}
+
+/* Gaya untuk footer */
+footer {
+    background-color: #2671c4;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #e5e5e5;
+}
