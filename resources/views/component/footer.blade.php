@@ -1,11 +1,7 @@
- <!--**********************************
-            Footer start
-        ***********************************-->
- <div class="footer">
-     <div class="copyright">
-         <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
-     </div>
- </div>
- <!--**********************************
-            Footer end
-        ***********************************-->
+<footer class="main-footer">
+    <div class="footer-left">
+        <a href="templateshub.net">Templateshub</a>
+    </div>
+    <div class="footer-right">
+    </div>
+</footer>

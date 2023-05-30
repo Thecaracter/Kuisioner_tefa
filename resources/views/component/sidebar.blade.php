@@ -1,60 +1,55 @@
- <!--**********************************
-        Sidebar start
-    ***********************************-->
- <div class="nk-sidebar">
-     <div class="nk-nav-scroll">
-         <ul class="metismenu" id="menu">
-             <li>
-                 <a href="/index" aria-expanded="false">
-                     <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
-                 </a>
-             </li>
+{{-- @if (Auth::user()->role == 'admin') --}}
+<div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="/dashboard"> <img alt="image" src="{{ asset('admin/assets/img/logo.png') }}" class="header-logo" />
+                <span class="logo-name">比赛</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            <li class="dropdown {{ Request::path() === 'dashboard' ? 'active' : '' }}">
+                <a href="/dashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            </li>
 
-             <li>
-                 <a href="/datauser" aria-expanded="false">
-                     <i class="icon-user menu-icon"></i><span class="nav-text">Data User</span>
-                 </a>
-             </li>
-             <li>
-                 <a href="/datapengingat" aria-expanded="false">
-                     <i class="icon-bell menu-icon"></i><span class="nav-text">Data Pengingat</span>
-                 </a>
-             </li>
-             <li>
-                 <a href="/datapoli" aria-expanded="false">
-                     <i class="icon-note menu-icon"></i><span class="nav-text">Data Poli</span>
-                 </a>
-             </li>
-             <li>
-                 <a href="/pengingat" aria-expanded="false">
-                     <i class="icon-notebook menu-icon"></i><span class="nav-text">Pengingat</span>
-                 </a>
-             </li>
-         </ul>
-         </li>
-         </ul>
-     </div>
- </div>
- <!--**********************************
-           Sidebar end
-       ***********************************-->
-
- <!--**********************************
-           Content body start
-       ***********************************-->
-
- @include('component.content')
-
- <!--**********************************
-           Content body end
-       ***********************************-->
+            <li class="dropdown {{ Request::path() === 'user' ? 'active' : '' }}"><a class="nav-link" href="/user"><i
+                        data-feather="user"></i><span>User</span></a>
+            </li>
+            <li class="dropdown {{ Request::path() === 'lomba' ? 'active' : '' }}"><a class="nav-link" href="/lomba"><i
+                        data-feather="hard-drive"></i><span>Lomba</span></a>
+            </li>
+            <li class="menu-header">User Lomba</li>
+            <li class="dropdown {{ Request::path() === 'data-pendaftaran' ? 'active' : '' }}"><a class="nav-link"
+                    href="/data-pendaftaran"><i data-feather="clipboard"></i><span>Data Pendaftaran</span></a>
+            </li>
+            <li class="dropdown {{ Request::path() === 'data-pembayaran' ? 'active' : '' }}"><a class="nav-link"
+                    href="/data-pembayaran"><i data-feather="dollar-sign"></i><span>Data Pembayaran</span></a>
+            </li>
+        </ul>
+    </aside>
+</div>
+{{-- @else
+<div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="/dashboard"> <img alt="image" src="{{ asset('admin/assets/img/logo.png') }}"
+                    class="header-logo" />
+                <span class="logo-name">比赛</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            <li class="dropdown {{ Request::path() === 'dashboard' ? 'active' : '' }}">
+                <a href="/dashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            </li>
 
 
- <!--**********************************
-           Footer start
-       ***********************************-->
-
- @include('component.footer')
- <!--**********************************
-           Footer end
-       ***********************************-->
+            </li>
+            <li class="menu-header">User Lomba</li>
+            <li class="dropdown {{ Request::path() === 'pendaftaran' ? 'active' : '' }}"><a class="nav-link"
+                    href="/pendaftaran"><i data-feather="clipboard"></i><span>Pendaftaran</span></a>
+            </li>
+        </ul>
+    </aside>
+</div>
+@endif --}}

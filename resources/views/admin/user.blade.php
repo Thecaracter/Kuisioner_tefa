@@ -53,9 +53,7 @@
                                                             data-target="#editUserModal{{ $user->id }}" type="button"
                                                             class="btn btn-info">Edit</button>
                                                         <form id="deleteForm-{{ $user->id }}" method="post"
-                                                            action="
-                                                            {{-- {{ route('user.destroy', $user->id) }} --}}
-                                                            "
+                                                            action=" {{ route('user.destroy', $user->id) }}"
                                                             style="display: inline;">
                                                             @csrf
                                                             @method('DELETE')

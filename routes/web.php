@@ -21,3 +21,4 @@ Route::get('/', [LandingController::class, 'index']);
 
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
 Route::post('/user', [UserController::class, 'create'])->name('user.create');
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
