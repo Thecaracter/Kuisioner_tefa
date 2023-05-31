@@ -14,18 +14,18 @@ class Data extends Seeder
     public function run()
     {
         DB::table('quisioner')->insert([
-            'nama' => 'Nama Quisioner 1',
+            'nama' => 'Kepuasan Pelanggan',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         DB::table('quisioner')->insert([
-            'nama' => 'Nama Quisioner 2',
+            'nama' => 'Analisis Kompetitor',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        $quisionerId = DB::table('quisioner')->where('nama', 'Nama Quisioner 1')->value('id');
+        $quisionerId = DB::table('quisioner')->where('nama', 'Kepuasan Pelanggan')->value('id');
 
         DB::table('detail_quisioner')->insert([
             'pertanyaan' => 'Pertanyaan 1',
@@ -34,7 +34,7 @@ class Data extends Seeder
             'updated_at' => now(),
         ]);
 
-        $quisionerId = DB::table('quisioner')->where('nama', 'Nama Quisioner 2')->value('id');
+        $quisionerId = DB::table('quisioner')->where('nama', 'Analisis Kompetitor')->value('id');
 
         DB::table('detail_quisioner')->insert([
             'pertanyaan' => 'Pertanyaan 2',

@@ -3,6 +3,7 @@
 use App\Http\Controllers\DetailQuisionerController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\QuisionerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,9 @@ Route::get('/detail-quisioner', [DetailQuisionerController::class, 'index'])->na
 Route::post('/detail-quisioner', [DetailQuisionerController::class, 'store'])->name('detail-quisioner.store');
 Route::post('/detail-quisioner/{id}', [DetailQuisionerController::class, 'update'])->name('detail-quisioner.update');
 Route::delete('/detail-quisioner/{id}', [DetailQuisionerController::class, 'destroy'])->name('detail-quisioner.destroy');
+
+//perusahaan routes
+Route::get('/perusahaan', [PerusahaanController::class, 'index'])->name('perusahaan.index');
+Route::post('/perusahaan', [PerusahaanController::class, 'store'])->name('perusahaan.store');
+Route::post('/perusahaan/{id}', [PerusahaanController::class, 'update'])->name('perusahaan.update');
+Route::delete('/perusahaan/{id}', [PerusahaanController::class, 'destroy'])->name('perusahaan.destroy');
