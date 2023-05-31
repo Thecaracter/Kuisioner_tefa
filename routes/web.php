@@ -4,6 +4,7 @@ use App\Http\Controllers\DetailQuisionerController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\PosisiController;
 use App\Http\Controllers\QuisionerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +53,9 @@ Route::get('/perusahaan', [PerusahaanController::class, 'index'])->name('perusah
 Route::post('/perusahaan', [PerusahaanController::class, 'store'])->name('perusahaan.store');
 Route::post('/perusahaan/{id}', [PerusahaanController::class, 'update'])->name('perusahaan.update');
 Route::delete('/perusahaan/{id}', [PerusahaanController::class, 'destroy'])->name('perusahaan.destroy');
+
+//posisi routes
+Route::get('/posisi', [PosisiController::class, 'index'])->name('posisi.index');
+Route::post('/posisi', [PosisiController::class, 'store'])->name('posisi.store');
+Route::post('/posisi/{id}', [PosisiController::class, 'update'])->name('posisi.update');
+Route::delete('/posisi/{id}', [PosisiController::class, 'destroy'])->name('posisi.destroy');

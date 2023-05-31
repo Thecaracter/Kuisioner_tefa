@@ -28,6 +28,9 @@
                     <li class="dropdown {{ Request::path() === 'perusahaan' ? 'active' : '' }}"><a class="nav-link"
                             href="/perusahaan"><i data-feather="home"></i><span>Perusahaan</span></a>
                     </li>
+                    <li class="dropdown {{ Request::path() === 'posisi' ? 'active' : '' }}"><a class="nav-link"
+                            href="/posisi"><i data-feather="gitlab"></i><span>Posisi</span></a>
+                    </li>
                 </ul>
             </li>
 

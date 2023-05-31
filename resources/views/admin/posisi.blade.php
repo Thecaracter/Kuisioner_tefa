@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Data Perusahaan')
+@section('title', 'Data Posisi')
 
 @section('content')
     <div class="main-content">
@@ -32,12 +32,12 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">No</th>
-                                            <th class="text-center">Nama Perusahaan</th>
+                                            <th class="text-center">Nama Posisi</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($perusahaan as $index => $item)
+                                        @foreach ($posisi as $index => $item)
                                             <tr>
                                                 <td class="text-center">{{ $index + 1 }}</td>
                                                 <td class="text-center">{{ $item->nama }}</td>
@@ -47,7 +47,7 @@
                                                             data-target="#editModal{{ $item->id }}" type="button"
                                                             class="btn btn-info">Edit</button>
                                                         <form id="deleteForm-{{ $item->id }}" method="post"
-                                                            action="{{ route('perusahaan.destroy', $item->id) }}"
+                                                            action="{{ route('posisi.destroy', $item->id) }}"
                                                             style="display: inline;">
                                                             @csrf
                                                             @method('DELETE')
@@ -67,7 +67,7 @@
             </div>
         </div>
     </div>
-    <!-- Add Perusahaan Modal -->
+    <!-- Add Posisi Modal -->
     <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="createUserModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -80,12 +80,12 @@
                 </div>
                 <div class="modal-body">
                     <!-- Add Quisioner Form -->
-                    <form action="{{ route('perusahaan.store') }}" method="POST">
+                    <form action="{{ route('posisi.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="nama">Nama Perusahaan</label>
+                            <label for="nama">Nama Posisi</label>
                             <input type="text" class="form-control" id="nama" name="nama"
-                                placeholder="Nama Perusahaan" required>
+                                placeholder="Nama Posisi" required>
                         </div>
 
                         <div class="modal-footer">
@@ -98,8 +98,8 @@
         </div>
     </div>
 
-    <!-- Add Perusahaan Modal -->
-    @foreach ($perusahaan as $index => $item)
+    <!-- Add Posisi Modal -->
+    @foreach ($posisi as $index => $item)
         <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" role="dialog"
             aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -112,13 +112,13 @@
                     </div>
                     <div class="modal-body">
                         <!-- Edit Quisioner Form -->
-                        <form action="{{ route('perusahaan.update', $item->id) }}" method="POST">
+                        <form action="{{ route('posisi.update', $item->id) }}" method="POST">
                             @csrf
                             @method('POST')
                             <div class="form-group">
-                                <label for="edit_nama{{ $item->id }}">Nama Perusahaan</label>
+                                <label for="edit_nama{{ $item->id }}">Nama Posisi</label>
                                 <input type="text" class="form-control" id="edit_nama{{ $item->id }}" name="nama"
-                                    placeholder="Nama Perusahaan" value="{{ $item->nama }}" required>
+                                    placeholder="Nama Posisi" value="{{ $item->nama }}" required>
                             </div>
 
                             <div class="modal-footer">
