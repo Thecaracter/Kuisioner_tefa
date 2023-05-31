@@ -13,7 +13,7 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('foto/user.jpg') }}" class="user-img-radious-style">
+                <img alt="image" src="{{ asset('foto/user.png') }}" class="user-img-radious-style">
                 <span class="d-sm-none d-lg-inline-block"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
@@ -21,16 +21,15 @@
                     Hello {{ Auth::user()->username }}
                 </div>
                 <div class="dropdown-divider"></div>
-                <a href="/profile" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
-                    <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
             </div>
         </li>
     </ul>
