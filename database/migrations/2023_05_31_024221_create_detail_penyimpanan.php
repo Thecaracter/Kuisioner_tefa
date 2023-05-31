@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->integer('umur');
             $table->string('no_telepon');
             $table->unsignedInteger('posisi_id');
+            $table->unsignedBigInteger('perusahaan_id');
             $table->unsignedInteger('detail_quisioner_id');
             $table->integer('jawaban');
             $table->timestamps();
@@ -26,8 +27,10 @@ return new class extends Migration {
         Schema::table('detail_penyimpanan', function (Blueprint $table) {
             $table->foreign('penyimpanan_id')->references('id')->on('penyimpanan');
             $table->foreign('posisi_id')->references('id')->on('posisi');
+            $table->foreign('perusahaan_id')->references('id')->on('perusahaan');
             $table->foreign('detail_quisioner_id')->references('id')->on('detail_quisioner');
         });
+
     }
 
     /**
@@ -38,6 +41,7 @@ return new class extends Migration {
         Schema::table('detail_penyimpanan', function (Blueprint $table) {
             $table->dropForeign('detail_penyimpanan_penyimpanan_id_foreign');
             $table->dropForeign('detail_penyimpanan_posisi_id_foreign');
+            $table->dropForeign('detail_penyimpanan_perusahaan_id_foreign');
             $table->dropForeign('detail_penyimpanan_detail_quisioner_id_foreign');
         });
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Detail_Quisioner;
+use App\Models\Perusahaan;
+use App\Models\Posisi;
 use App\Models\Quisioner;
 use Illuminate\Http\Request;
 use Laravolt\Indonesia\Facades\Province;
@@ -19,13 +21,17 @@ class LandingController extends Controller
 
         $selectedQuisionerId = $request->input('quisioner'); // Mendapatkan nilai yang dipilih dari input 'quisioner'
 
+        $posisi = Posisi::all();
+
+        $perusahaan = Perusahaan::all();
+
         if ($selectedQuisionerId) {
             $detailquisioners = Detail_Quisioner::where('quisioner_id', $selectedQuisionerId)->get();
         } else {
             $detailquisioners = Detail_Quisioner::all();
         }
 
-        return view('landing.landingpage', compact('quisioners', 'detailquisioners'));
+        return view('landing.landingpage', compact('quisioners', 'detailquisioners', 'posisi', 'perusahaan'));
     }
 
 

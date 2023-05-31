@@ -13,29 +13,24 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                {{-- @if (Auth::user()->foto == null) --}}
                 <img alt="image" src="{{ asset('foto/user.jpg') }}" class="user-img-radious-style">
                 <span class="d-sm-none d-lg-inline-block"></span>
-                {{-- @else
-                    <img alt="image" src="{{ asset(Auth::user()->foto) }}" class="user-img-radious-style">
-                    <span class="d-sm-none d-lg-inline-block"></span>
-                @endif --}}
             </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
                 <div class="dropdown-title">
-                    {{-- Hello {{ Auth::user()->username }} --}}
+                    Hello {{ Auth::user()->username }}
                 </div>
                 <div class="dropdown-divider"></div>
                 <a href="/profile" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
-                    {{-- <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"
+                    <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
                         Logout
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
-                    </form> --}}
+                    </form>
             </div>
         </li>
     </ul>

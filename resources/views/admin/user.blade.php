@@ -147,6 +147,53 @@
             </div>
         </div>
     </div>
+    <!-- Edit User Modal -->
+    @foreach ($users as $user)
+        <div class="modal fade" id="editUserModal{{ $user->id }}" tabindex="-1" role="dialog"
+            aria-labelledby="editUserModalLabel{{ $user->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editUserModalLabel{{ $user->id }}">Edit Pengguna</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('user.update', $user->id) }}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="editName{{ $user->id }}">Username</label>
+                                <input type="text" class="form-control" id="editName{{ $user->id }}"
+                                    name="name" value="{{ $user->name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editEmail{{ $user->id }}">Email</label>
+                                <input type="email" class="form-control" id="editEmail{{ $user->id }}"
+                                    name="email" value="{{ $user->email }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editAlamat{{ $user->id }}">Alamat</label>
+                                <input type="text" class="form-control" id="editAlamat{{ $user->id }}"
+                                    name="alamat" value="{{ $user->alamat }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editNoTlp{{ $user->id }}">No. HP</label>
+                                <input type="text" class="form-control" id="editNoTlp{{ $user->id }}"
+                                    name="no_tlp" value="{{ $user->no_tlp }}" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
     <script>
         $(document).ready(function() {
             $('#searchInput').on('keyup', function() {
