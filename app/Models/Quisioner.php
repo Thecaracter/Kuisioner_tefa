@@ -12,6 +12,7 @@ class Quisioner extends Model
 
     protected $fillable = [
         'nama',
+        'status'
     ];
 
     public $timestamps = true;

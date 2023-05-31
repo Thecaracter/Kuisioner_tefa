@@ -9,7 +9,8 @@ class Detail_Quisioner extends Model
 {
     use HasFactory;
     protected $table = 'detail_quisioner';
-    protected $fillable = ['pertanyaan'];
+    protected $fillable = ['quisioner_id', 'pertanyaan'];
+
 
     public function quisioner()
     {

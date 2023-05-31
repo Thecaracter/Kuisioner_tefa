@@ -15,7 +15,10 @@
                         data-feather="user"></i><span>User</span></a>
             </li>
             <li class="dropdown {{ Request::path() === 'quisioner' ? 'active' : '' }}"><a class="nav-link"
-                    href="/quisioner"><i data-feather="file-text"></i><span>Quisioner</span></a>
+                    href="/quisioner"><i data-feather="file"></i><span>Quisioner</span></a>
+            </li>
+            <li class="dropdown {{ Request::path() === 'detail-quisioner' ? 'active' : '' }}"><a class="nav-link"
+                    href="/detail-quisioner"><i data-feather="file-text"></i><span>Detail Quisioner</span></a>
             </li>
         </ul>
     </aside>

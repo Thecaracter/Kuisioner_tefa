@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('quisioner', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->enum('status', ['1', '2'])->default('1');
             $table->timestamps();
         });
     }
