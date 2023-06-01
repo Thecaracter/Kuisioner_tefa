@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\DetailPenyimpananController;
 use App\Http\Controllers\DetailQuisionerController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PenyimpananController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\PosisiController;
 use App\Http\Controllers\QuisionerController;
@@ -61,3 +63,10 @@ Route::get('/posisi', [PosisiController::class, 'index'])->name('posisi.index');
 Route::post('/posisi', [PosisiController::class, 'store'])->name('posisi.store');
 Route::post('/posisi/{id}', [PosisiController::class, 'update'])->name('posisi.update');
 Route::delete('/posisi/{id}', [PosisiController::class, 'destroy'])->name('posisi.destroy');
+
+//penyimpanan routes
+Route::get('/penyimpanan', [PenyimpananController::class, 'index'])->name('penyimpanan.index');
+
+
+//Detail Penyimpanan routes
+Route::get('/detail-penyimpanan', [DetailPenyimpananController::class, 'detail'])->name('detailpenyimpanan');

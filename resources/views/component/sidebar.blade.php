@@ -34,7 +34,7 @@
                 </ul>
             </li>
             <li class="dropdown {{ Request::path() === 'Penyimpanan' ? 'active' : '' }}">
-                <a href="/dashboard" class="nav-link"><i data-feather="hard-drive"></i><span>Penyimpanan</span></a>
+                <a href="/penyimpanan" class="nav-link"><i data-feather="hard-drive"></i><span>Penyimpanan</span></a>
             </li>
         </ul>
     </aside>
