@@ -12,55 +12,23 @@ class PenyimpananController extends Controller
      */
     public function index()
     {
-        $penyimpanan = Penyimpanan::all();
+        $penyimpanan = Penyimpanan::with('posisi', 'perusahaan')->get();
         return view('admin.penyimpanan', compact('penyimpanan'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $posisi = Penyimpanan::findOrFail($id);
+
+        // Delete associated records in the `detail_penyimpanan` table
+        $posisi->detailPenyimpanan()->delete();
+
+        // Delete the `penyimpanan` record
+        $posisi->delete();
+
+        return redirect()->route('penyimpanan.index')->with('success', 'Penyimpanan berhasil dihapus.');
     }
+
 }

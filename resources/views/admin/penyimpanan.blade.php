@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Data Quisioner</h4>
+                            <h4 class="card-title">Data Tersimpan</h4>
                             <br>
 
                             <div class="search-element">
@@ -24,7 +24,12 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">No</th>
-                                            <th class="text-center">Nama Quisioner</th>
+                                            <th class="text-center">Nama </th>
+                                            <th class="text-center">Alamat</th>
+                                            <th class="text-center">Umur</th>
+                                            <th class="text-center">No Telepon</th>
+                                            <th class="text-center">Perusahaan</th>
+                                            <th class="text-center">Posisi</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>

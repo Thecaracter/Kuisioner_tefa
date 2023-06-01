@@ -66,7 +66,7 @@ Route::delete('/posisi/{id}', [PosisiController::class, 'destroy'])->name('posis
 
 //penyimpanan routes
 Route::get('/penyimpanan', [PenyimpananController::class, 'index'])->name('penyimpanan.index');
-
+Route::delete('/penyimpanan/{id}', [PenyimpananController::class, 'destroy'])->name('penyimpanan.destroy');
 
 //Detail Penyimpanan routes
 Route::get('/detail-penyimpanan', [DetailPenyimpananController::class, 'detail'])->name('detailpenyimpanan');
