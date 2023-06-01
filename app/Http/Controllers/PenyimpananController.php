@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailPenyimpanan;
 use App\Models\Penyimpanan;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,6 @@ class PenyimpananController extends Controller
         $penyimpanan = Penyimpanan::with('posisi', 'perusahaan')->get();
         return view('admin.penyimpanan', compact('penyimpanan'));
     }
-
-
 
     public function destroy(string $id)
     {

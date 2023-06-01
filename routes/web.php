@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\anjay;
 use App\Http\Controllers\DetailPenyimpananController;
 use App\Http\Controllers\DetailQuisionerController;
 use App\Http\Controllers\LandingController;
@@ -69,4 +70,4 @@ Route::get('/penyimpanan', [PenyimpananController::class, 'index'])->name('penyi
 Route::delete('/penyimpanan/{id}', [PenyimpananController::class, 'destroy'])->name('penyimpanan.destroy');
 
 //Detail Penyimpanan routes
-Route::get('/detail-penyimpanan', [DetailPenyimpananController::class, 'detail'])->name('detailpenyimpanan');
+Route::get('/detail-penyimpanan/{id}', [DetailPenyimpananController::class, 'index'])->name('detailpenyimpanan');

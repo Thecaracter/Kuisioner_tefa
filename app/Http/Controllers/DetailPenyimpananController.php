@@ -2,63 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailPenyimpanan;
 use Illuminate\Http\Request;
 
 class DetailPenyimpananController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function index($id)
     {
-        //
-    }
+        $detailPenyimpanan = DetailPenyimpanan::join('penyimpanan', 'detail_penyimpanan.penyimpanan_id', '=', 'penyimpanan.id')
+            ->join('detail_quisioner', 'detail_penyimpanan.detail_quisioner_id', '=', 'detail_quisioner.id')
+            ->select('detail_penyimpanan.*', 'penyimpanan.nama AS nama_penyimpanan', 'detail_quisioner.pertanyaan')
+            ->where('penyimpanan_id', $id)
+            ->get();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if (!$detailPenyimpanan) {
+            abort(404);
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        return view('admin.detail', compact('detailPenyimpanan'));
+        // return response()->json($detailPenyimpanan);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
