@@ -20,7 +20,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Login berhasil
-            return redirect('/user');
+            return redirect('/dashboard');
         } else {
             // Login gagal
             return back()->withErrors([

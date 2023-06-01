@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\anjay;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailPenyimpananController;
 use App\Http\Controllers\DetailQuisionerController;
 use App\Http\Controllers\LandingController;
@@ -28,6 +29,9 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/get-kuisioner', [LandingController::class, 'getQuisioner'])->name('get-kuisioner');
 Route::post('/store', [LandingController::class, 'store'])->name('landing.store');
 
+
+//dashboard routes
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 //login routes
 Route::post('/masuk', [LoginController::class, 'login'])->name('login');
 Route::get('/masuk', [LoginController::class, 'showLoginForm']);

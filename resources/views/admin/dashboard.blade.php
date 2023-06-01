@@ -12,7 +12,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
                                         <h5 class="font-22">Jumlah User</h5>
-                                        <h1 class="mb-3 font-35 ">{{ $usercount }}</h1>
+                                        <h1 class="mb-3 font-35 ">{{ $userCount }}</h1>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -32,8 +32,8 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
-                                        <h5 class="font-22"> Jumlah Lomba</h5>
-                                        <h2 class="mb-3 font-35">{{ $lombaCount }}</h2>
+                                        <h5 class="font-22"> Pengisi Quisioner </h5>
+                                        <h2 class="mb-3 font-35">{{ $penyimpananCount }}</h2>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -55,8 +55,8 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
-                                        <h5 class="font-22">Jumlah Pendaftar</h5>
-                                        <h2 class="mb-3 font-35">{{ $pendaftaranCount }}</h2>
+                                        <h5 class="font-22">Jumlah Perusahaan</h5>
+                                        <h2 class="mb-3 font-35">{{ $perusahaanCount }}</h2>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -76,8 +76,8 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
-                                        <h5 class="font-22">Jumlah Pembayaran</h5>
-                                        <h2 class="mb-3 font-35">{{ $pembayaranCount }}</h2>
+                                        <h5 class="font-22">Jumlah Posisi Terdaftar</h5>
+                                        <h2 class="mb-3 font-35">{{ $posisiCount }}</h2>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
