@@ -12,8 +12,7 @@ return new class extends Migration {
     {
         schema::create('penyimpanan', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('daerah');
+            // $table->unsignedBigInteger('user_id');
             $table->string('nama');
             $table->string('alamat');
             $table->integer('umur');
@@ -23,7 +22,7 @@ return new class extends Migration {
             $table->date('tanggal');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('user_id')->references('id')->on('users');
         });
         Schema::table('penyimpanan', function (Blueprint $table) {
 

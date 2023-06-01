@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //landing routes
-Route::get('/', [LandingController::class, 'index']);
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/get-kuisioner', [LandingController::class, 'getQuisioner'])->name('get-kuisioner');
+Route::post('/store', [LandingController::class, 'store'])->name('landing.store');
 
 //login routes
 Route::post('/masuk', [LoginController::class, 'login'])->name('login');
