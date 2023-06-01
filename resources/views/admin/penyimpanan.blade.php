@@ -38,6 +38,11 @@
                                             <tr>
                                                 <td class="text-center">{{ $index + 1 }}</td>
                                                 <td class="text-center">{{ $item->nama }}</td>
+                                                <td class="text-center">{{ $item->alamat }}</td>
+                                                <td class="text-center">{{ $item->umur }}</td>
+                                                <td class="text-center">{{ $item->no_telepon }}</td>
+                                                <td class="text-center">{{ $item->perusahaan->nama }}</td>
+                                                <td class="text-center">{{ $item->posisi->nama }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>
                                                         <form id="deleteForm-{{ $item->id }}" method="post"
@@ -80,5 +85,15 @@
                 }
             });
         }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#searchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $('table tbody tr').filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
     </script>
 @endsection
