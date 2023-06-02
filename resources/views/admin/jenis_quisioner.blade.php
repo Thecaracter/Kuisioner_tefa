@@ -40,7 +40,7 @@
                                         @foreach ($jenis as $index => $item)
                                             <tr>
                                                 <td class="text-center">{{ $index + 1 }}</td>
-                                                <td class="text-center">{{ $item->jenis }}</td>
+                                                <td class="text-start">{{ $item->jenis }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>
                                                         <button data-toggle="modal"

@@ -13,11 +13,6 @@ class Data extends Seeder
      */
     public function run()
     {
-        DB::table('jenis_quisioner')->insert([
-            'jenis' => 'Promosi',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
         DB::table('quisioner')->insert([
             'nama' => 'Kepuasan Pelanggan',
             'created_at' => now(),

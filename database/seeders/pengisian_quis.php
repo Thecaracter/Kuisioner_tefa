@@ -53,6 +53,7 @@ class pengisian_quis extends Seeder
         }
 
         DB::table('detail_quisioner')->insert($detailQuisionerData);
+
         $quisionerId = DB::table('quisioner')->where('nama', 'Kepuasan Pelanggan')->value('id');
 
         $pertanyaan = [

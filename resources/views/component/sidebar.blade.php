@@ -11,12 +11,15 @@
                 <a href="/dashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <li
-                class="dropdown {{ Request::path() === 'user' || Request::path() === 'quisioner' || Request::path() === 'posisi' || Request::path() === 'perusahaan' || Request::path() === 'detail-quisioner' ? 'active' : '' }}">
+                class="dropdown {{ Request::path() === 'user' || Request::path() === 'jenis-quisioner' || Request::path() === 'quisioner' || Request::path() === 'posisi' || Request::path() === 'perusahaan' || Request::path() === 'detail-quisioner' ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="briefcase"></i><span>Master</span></a>
                 <ul class="dropdown-menu">
                     <li class="dropdown {{ Request::path() === 'user' ? 'active' : '' }}"><a class="nav-link"
                             href="/user"><i data-feather="user"></i><span>User</span></a>
+                    </li>
+                    <li class="dropdown {{ Request::path() === 'jenis-quisioner' ? 'active' : '' }}"><a class="nav-link"
+                            href="/jenis-quisioner"><i data-feather="bookmark"></i><span>Jenis Quisioner</span></a>
                     </li>
                     <li class="dropdown {{ Request::path() === 'quisioner' ? 'active' : '' }}"><a class="nav-link"
                             href="/quisioner"><i data-feather="file"></i><span>Quisioner</span></a>
