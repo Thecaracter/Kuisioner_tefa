@@ -7,7 +7,7 @@
                 class="d-inline-block align-top">
             <img src="{{ asset('landingasset/img/Blu.png') }}" alt="Logo 3" width="30" height="30"
                 class="d-inline-block align-top">
-            <span class="ml-3">Form Kuisioner</span>
+            <span class="ml-3">Kuesioner Industri Benih</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
