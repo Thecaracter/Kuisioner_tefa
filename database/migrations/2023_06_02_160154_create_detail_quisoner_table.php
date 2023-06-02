@@ -17,6 +17,8 @@ return new class extends Migration {
         });
 
         Schema::table('detail_quisioner', function (Blueprint $table) {
+            $table->unsignedBigInteger('jenis_quisioner_id')->nullable();
+            $table->foreign('jenis_quisioner_id')->references('id')->on('jenis_quisioner');
             $table->unsignedInteger('quisioner_id');
             $table->foreign('quisioner_id')->references('id')->on('quisioner');
         });

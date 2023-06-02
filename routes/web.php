@@ -4,6 +4,8 @@ use App\Http\Controllers\anjay;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailPenyimpananController;
 use App\Http\Controllers\DetailQuisionerController;
+use App\Http\Controllers\JeniQuisionerController;
+use App\Http\Controllers\JenisQuisionerController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenyimpananController;
@@ -79,4 +81,10 @@ Route::group(['middleware' => 'admin'], function () {
 
     //Detail Penyimpanan routes
     Route::get('/detail-penyimpanan/{id}', [DetailPenyimpananController::class, 'index'])->name('detailpenyimpanan');
+
+    //jenis quisioner routes
+    Route::get('/jenis-quisioner', [JenisQuisionerController::class, 'index'])->name('jenisq.index');
+    Route::post('/jenis-quisioner', [JenisQuisionerController::class, 'store'])->name('jenisq.store');
+    Route::post('/jenis-quisioner/{id}', [JenisQuisionerController::class, 'update'])->name('jenisq.update');
+    Route::delete('/jenis-quisioner/{id}', [JenisQuisionerController::class, 'destroy'])->name('jenisq.destroy');
 });

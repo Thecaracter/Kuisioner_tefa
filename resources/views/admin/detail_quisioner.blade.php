@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Data Detail</h4>
+                            <h4 class="card-title">Data Detail Quisioner</h4>
                             <!-- Tampilkan pesan kesalahan -->
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -43,6 +43,7 @@
                                         <tr>
                                             <th class="text-center">No</th>
                                             <th class="text-center">Nama Quisioner</th>
+                                            <th class="text-center">Jenis Quisioner</th>
                                             <th class="text-center">Pertanyaan</th>
                                             <th class="text-center">Action</th>
                                         </tr>
@@ -51,7 +52,8 @@
                                         @foreach ($quisioners as $index => $quisioner)
                                             <tr>
                                                 <td class="text-center">{{ $index + 1 }}</td>
-                                                <td class="text-center">{{ $quisioner->nama }}</td>
+                                                <td class="text-center">{{ $quisioner->quisioner->nama }}</td>
+                                                <td class="text-center">{{ $quisioner->jenisQuisioner->jenis }}</td>
                                                 <td>{{ $quisioner->pertanyaan }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>
@@ -105,10 +107,18 @@
                                 @endforeach
                             </select>
                         </div>
-
+                        <div class="form-group">
+                            <label for="nama">Jenis Quisioner</label>
+                            <select class="form-control" id="jenis" name="jenis" required>
+                                <option value="">Select Quisioner</option>
+                                @foreach ($jenis as $jns)
+                                    <option value="{{ $jns->id }}">{{ $jns->jenis }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="edit_pertanyaan">Pertanyaan</label>
-                            <textarea class="form-control" id="edit_pertanyaan" name="pertanyaan" placeholder="Pertanyaan" required>{{ $quisioner->pertanyaan }}</textarea>
+                            <textarea class="form-control" id="edit_pertanyaan" name="pertanyaan" placeholder="Pertanyaan" required></textarea>
                         </div>
 
                         <div class="modal-footer">
@@ -145,6 +155,18 @@
                                         <option value="{{ $item->id }}"
                                             {{ $quisioner->quisioner_id == $item->id ? 'selected' : '' }}>
                                             {{ $item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="update_jenis">Jenis Quisioner</label>
+                                <select class="form-control" id="update_jenis" name="jenis" required>
+                                    <option value="">Select Quisioner</option>
+                                    @foreach ($jenis as $jns)
+                                        <option value="{{ $jns->id }}"
+                                            {{ $quisioner->jenis_quisioner_id == $jns->id ? 'selected' : '' }}>
+                                            {{ $jns->jenis }}
                                         </option>
                                     @endforeach
                                 </select>

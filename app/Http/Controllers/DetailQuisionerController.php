@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Detail_Quisioner;
+use App\Models\JenisQuisioner;
 use App\Models\Quisioner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,11 +12,11 @@ class DetailQuisionerController extends Controller
     public function index()
     {
         $quis = Quisioner::all();
-        $quisioners = Detail_Quisioner::join('quisioner', 'detail_quisioner.quisioner_id', '=', 'quisioner.id')
-            ->select('detail_quisioner.*', 'quisioner.nama')
-            ->get();
+        $jenis = JenisQuisioner::all();
+        $quisioners = Detail_Quisioner::with('quisioner', 'jenisQuisioner')->get();
+        return view('admin.detail_quisioner', compact('quisioners', 'quis', 'jenis'));
 
-        return view('admin.detail_quisioner', compact('quisioners', 'quis'));
+        // return response()->json($quisioners);
     }
 
 
@@ -24,6 +25,7 @@ class DetailQuisionerController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required',
+            'jenis' => 'required',
             'pertanyaan' => 'required',
         ]);
 
@@ -33,15 +35,19 @@ class DetailQuisionerController extends Controller
             return redirect()->back()->with('error', 'Invalid Quisioner');
         }
 
-        Detail_Quisioner::create([
-            'quisioner_id' => $quisioner->id,
-            'pertanyaan' => $request->input('pertanyaan'),
-        ]);
+        $jenisQuisioner = JenisQuisioner::find($request->input('jenis'));
+        if (!$jenisQuisioner) {
+            return redirect()->back()->with('error', 'Invalid Jenis Quisioner');
+        }
+
+        $detailQuisioner = new Detail_Quisioner();
+        $detailQuisioner->quisioner_id = $quisioner->id;
+        $detailQuisioner->jenis_quisioner_id = $jenisQuisioner->id;
+        $detailQuisioner->pertanyaan = $request->input('pertanyaan');
+        $detailQuisioner->save();
 
         return redirect()->route('detailq.index')->with('success', 'Detail Quisioner created successfully');
     }
-
-
 
     public function update(Request $request, $id)
     {
@@ -59,9 +65,14 @@ class DetailQuisionerController extends Controller
         if (!$quisioner) {
             return redirect()->back()->withErrors(['error' => 'Invalid Quisioner'])->withInput();
         }
+        $jenisQuisioner = JenisQuisioner::find($request->input('jenis'));
+        if (!$jenisQuisioner) {
+            return redirect()->back()->with('error', 'Invalid Jenis Quisioner');
+        }
 
         $detailQuisioner = Detail_Quisioner::findOrFail($id);
         $detailQuisioner->quisioner_id = $quisioner->id;
+        $detailQuisioner->jenis_quisioner_id = $jenisQuisioner->id;
         $detailQuisioner->pertanyaan = $request->input('pertanyaan');
         $detailQuisioner->save();
 

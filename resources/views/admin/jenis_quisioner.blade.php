@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Data Posisi')
+@section('title', 'Jenis Quisioner')
 
 @section('content')
     <div class="main-content">
@@ -9,12 +9,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Data Posisi</h4>
+                            <h4 class="card-title">Data Jenis Quisioner</h4>
 
                             <div class="align-right text-right">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#createUserModal">
-                                    Tambah Quisioner
+                                    Tambah Jenis Quisioner
                                 </button>
                             </div>
 
@@ -32,22 +32,22 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">No</th>
-                                            <th class="text-center">Nama Posisi</th>
+                                            <th class="text-center">Jenis Quisioner</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($posisi as $index => $item)
+                                        @foreach ($jenis as $index => $item)
                                             <tr>
                                                 <td class="text-center">{{ $index + 1 }}</td>
-                                                <td class="text-center">{{ $item->nama }}</td>
+                                                <td class="text-center">{{ $item->jenis }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>
                                                         <button data-toggle="modal"
                                                             data-target="#editModal{{ $item->id }}" type="button"
                                                             class="btn btn-info">Edit</button>
                                                         <form id="deleteForm-{{ $item->id }}" method="post"
-                                                            action="{{ route('posisi.destroy', $item->id) }}"
+                                                            action="{{ route('jenisq.destroy', $item->id) }}"
                                                             style="display: inline;">
                                                             @csrf
                                                             @method('DELETE')
@@ -67,25 +67,25 @@
             </div>
         </div>
     </div>
-    <!-- Add Posisi Modal -->
+    <!-- Add Perusahaan Modal -->
     <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="createUserModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="createUserModalLabel">Tambah Quisioner</h5>
+                    <h5 class="modal-title" id="createUserModalLabel">Tambah Jenis Quisioner</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <!-- Add Quisioner Form -->
-                    <form action="{{ route('posisi.store') }}" method="POST">
+                    <form action="{{ route('jenisq.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="nama">Nama Posisi</label>
-                            <input type="text" class="form-control" id="nama" name="nama"
-                                placeholder="Nama Posisi" required>
+                            <label for="jenis">Jenis Quisioner</label>
+                            <input type="text" class="form-control" id="jenis" name="jenis"
+                                placeholder="Jenis Quisioner" required>
                         </div>
 
                         <div class="modal-footer">
@@ -98,8 +98,8 @@
         </div>
     </div>
 
-    <!-- Add Posisi Modal -->
-    @foreach ($posisi as $index => $item)
+    <!-- Add Perusahaan Modal -->
+    @foreach ($jenis as $index => $item)
         <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" role="dialog"
             aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -112,13 +112,13 @@
                     </div>
                     <div class="modal-body">
                         <!-- Edit Quisioner Form -->
-                        <form action="{{ route('posisi.update', $item->id) }}" method="POST">
+                        <form action="{{ route('jenisq.update', $item->id) }}" method="POST">
                             @csrf
                             @method('POST')
                             <div class="form-group">
-                                <label for="edit_nama{{ $item->id }}">Nama Posisi</label>
-                                <input type="text" class="form-control" id="edit_nama{{ $item->id }}" name="nama"
-                                    placeholder="Nama Posisi" value="{{ $item->nama }}" required>
+                                <label for="edit_jenis{{ $item->id }}">Jenis Quisioner</label>
+                                <input type="text" class="form-control" id="edit_jenis{{ $item->id }}"
+                                    name="jenis" placeholder="Jenis Quisioner" value="{{ $item->jenis }}" required>
                             </div>
 
                             <div class="modal-footer">

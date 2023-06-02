@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Data Quisioner</h4>
+                            <h4 class="card-title">Data Perusahaan</h4>
 
                             <div class="align-right text-right">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
