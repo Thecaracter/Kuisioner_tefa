@@ -20,7 +20,11 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Login berhasil
-            return redirect('/dashboard');
+            if (Auth::user()->isAdmin()) {
+                return redirect('/dashboard');
+            } else {
+                return redirect('/');
+            }
         } else {
             // Login gagal
             return back()->withErrors([
