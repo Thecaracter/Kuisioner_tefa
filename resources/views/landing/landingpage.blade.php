@@ -221,4 +221,17 @@
             }
         }
     </script>
+    <script>
+        // Memilih elemen navbar-toggler
+        var navbarToggler = document.querySelector('.navbar-toggler');
+
+        // Memilih elemen navbar-collapse
+        var navbarCollapse = document.querySelector('.navbar-collapse');
+
+        // Menambahkan event listener pada navbar-toggler
+        navbarToggler.addEventListener('click', function() {
+            // Toggle kelas 'show' pada navbar-collapse
+            navbarCollapse.classList.toggle('show');
+        });
+    </script>
 @endsection
