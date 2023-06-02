@@ -47,5 +47,16 @@ class Data extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        DB::table('users')->insert([
+            'name' => 'User',
+            'email' => 'user@gmail.com',
+            'password' => bcrypt('12345678'),
+            'alamat' => '123 Main St',
+            'no_tlp' => '123456789',
+            'role' => 'user',
+            'email_verified_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }

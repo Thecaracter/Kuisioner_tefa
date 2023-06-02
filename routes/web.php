@@ -39,8 +39,7 @@ Route::post('/masuk', [LoginController::class, 'login'])->name('login');
 Route::get('/masuk', [LoginController::class, 'showLoginForm']);
 
 //logout routes
-Route::post('/keluar', [LoginController::class, 'logout'])->name('logout');
-
+Route::match(['get', 'post'], '/keluar', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'admin'], function () {
     //dashboard routes
