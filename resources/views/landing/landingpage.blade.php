@@ -9,23 +9,23 @@
                     <form id="informasiForm">
                         <div class="form-group">
                             <label for="nama">Nama:</label>
-                            <input type="text" class="form-control" id="nama" name="nama">
+                            <input type="text" class="form-control" id="nama" name="nama" required>
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat:</label>
-                            <input type="text" class="form-control" id="alamat" name="alamat">
+                            <input type="text" class="form-control" id="alamat" name="alamat" required>
                         </div>
                         <div class="form-group">
                             <label for="umur">Umur:</label>
-                            <input type="number" class="form-control" id="umur" name="umur">
+                            <input type="number" class="form-control" id="umur" name="umur" required>
                         </div>
                         <div class="form-group">
                             <label for="telepon">No. Telepon:</label>
-                            <input type="tel" class="form-control" id="telepon" name="telepon">
+                            <input type="tel" class="form-control" id="telepon" name="telepon" required>
                         </div>
                         <div class="form-group">
                             <label for="perusahaan">Pilih Perusahaan Asal</label>
-                            <select class="form-control" id="perusahaan" name="perusahaan">
+                            <select class="form-control" id="perusahaan" name="perusahaan" required>
                                 <option value="">Pilih Perusahaan</option>
                                 @foreach ($perusahaan as $perusahaanItem)
                                     <option value="{{ $perusahaanItem->id }}">{{ $perusahaanItem->nama }}</option>
@@ -116,7 +116,8 @@
                         title: 'Sukses',
                         text: response.data.message
                     });
-
+                    document.getElementById("informasiForm").reset();
+                    document.getElementById("kuisionerForm").reset();
                     // console.log(response.data.message);
                     // console.log(kuisionerForm);
                     // console.log(informasiForm);
