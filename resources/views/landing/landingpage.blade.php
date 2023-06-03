@@ -21,11 +21,11 @@
                         </div>
                         <div class="form-group">
                             <label for="telepon">No. Telepon:</label>
-                            <input type="tel" class="form-control" id="telepon" name="telepon" required>
+                            <input type="number" class="form-control" id="telepon" name="telepon" required>
                         </div>
                         <div class="form-group">
                             <label for="perusahaan">Pilih Perusahaan Asal</label>
-                            <select class="form-control" id="perusahaan" name="perusahaan" required>
+                            <select class="form-control select2" id="perusahaan" name="perusahaan" required>
                                 <option value="">Pilih Perusahaan</option>
                                 @foreach ($perusahaan as $perusahaanItem)
                                     <option value="{{ $perusahaanItem->id }}">{{ $perusahaanItem->nama }}</option>
@@ -35,7 +35,7 @@
 
                         <div class="form-group">
                             <label for="posisi">Pilih Posisi</label>
-                            <select class="form-control" id="posisi" name="posisi">
+                            <select class="form-control select2" id="posisi" name="posisi">
                                 <option value="">Pilih Posisi</option>
                                 @foreach ($posisi as $posisiItem)
                                     <option value="{{ $posisiItem->id }}">{{ $posisiItem->nama }}</option>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="quisioner">Pilih Quisioner</label>
-                            <select class="form-control" id="quisioner" name="quisioner" onchange="showQuestion()">
+                            <select class="form-control select2" id="quisioner" name="quisioner" onchange="showQuestion()">
                                 <option value="">Pilih Quisioner</option>
                                 @foreach ($quisioners as $quisioner)
                                     <option value="{{ $quisioner->id }}">{{ $quisioner->nama }}</option>
@@ -84,9 +84,8 @@
                 </div>
             </div>
         </div>
-        <div class="text-center mt-4">
-            <button id="simpanButton" type="button"
-                class="btn btn-primary d-flex align-items-center justify-content-center" onclick="simpanData()">
+        <div class="text-center mt-4 d-flex justify-content-center">
+            <button id="simpanButton" type="button" class="btn btn-primary" onclick="simpanData()">
                 <span class="mr-2">Simpan</span>
                 <i class="fas fa-paper-plane"></i>
             </button>
