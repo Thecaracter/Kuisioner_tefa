@@ -86,7 +86,7 @@
         </div>
         <div class="text-center mt-4">
             <button id="simpanButton" type="button"
-                class="btn btn-primary d-flex align-items-center justify-content-center">
+                class="btn btn-primary d-flex align-items-center justify-content-center" onclick="simpanData()">
                 <span class="mr-2">Simpan</span>
                 <i class="fas fa-paper-plane"></i>
             </button>
@@ -96,75 +96,44 @@
     <!-- Mengimpor jQuery dan Ajax library -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Mengimpor library Swal -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script>
-        // Mengambil referensi elemen tombol "Simpan"
-        var simpanButton = document.getElementById("simpanButton");
+        function simpanData() {
+            var informasiForm = $('#informasiForm').serialize();
+            var kuisionerForm = $('#kuisionerForm').serializeArray();
 
-        // Menambahkan event listener untuk menangani klik tombol "Simpan"
-        simpanButton.addEventListener("click", function(event) {
-            event.preventDefault(); // Mencegah aksi default tombol submit
-
-            // Mengambil referensi elemen formulir
-            var informasiForm = document.getElementById("informasiForm");
-            var kuisionerForm = document.getElementById("kuisionerForm");
-
-            // Mengambil nilai input dari formulir informasi pribadi
-            var nama = document.getElementById("nama").value;
-            var alamat = document.getElementById("alamat").value;
-            var umur = document.getElementById("umur").value;
-            var telepon = document.getElementById("telepon").value;
-            var perusahaan = document.getElementById("perusahaan").value;
-            var posisi = document.getElementById("posisi").value;
-
-            // Mengambil nilai input dari formulir kuisioner
-            var selectedQuisioner = document.getElementById("quisioner").value;
-            var radioButtons = document.querySelectorAll("#quisioner-questions input[type='radio']:checked");
-            var detailQuisioners = {};
-
-            // Menyimpan jawaban kuisioner dalam objek detailQuisioners
-            radioButtons.forEach(function(radioButton) {
-                var quisionerId = radioButton.getAttribute("name").split("_")[1];
-                var satisfactionLevel = radioButton.value;
-
-                detailQuisioners[quisionerId] = satisfactionLevel;
-            });
-
-            // Membuat objek data yang akan dikirim ke server
-            var data = {
-                nama: nama,
-                alamat: alamat,
-                umur: umur,
-                telepon: telepon,
-                perusahaan: perusahaan,
-                posisi: posisi,
-                quisioner: selectedQuisioner,
-                detail_quisioner: detailQuisioners
-            };
-
-            // Mengirim data ke server menggunakan metode POST dengan Axios
-            axios.post("{{ route('landing.store') }}", data)
+            axios.post("/store", informasiForm, {
+                    params: {
+                        detail_quisioner: kuisionerForm
+                    }
+                })
                 .then(function(response) {
-                    // Menampilkan pesan sukses jika penyimpanan berhasil
-                    alert(response.data.message);
-
-                    // Mereset formulir informasi pribadi
-                    informasiForm.reset();
-                    kuisionerForm.reset();
-
-                    // Menghapus jawaban kuisioner yang telah dipilih
-                    radioButtons.forEach(function(radioButton) {
-                        radioButton.checked = false;
+                    // Respon berhasil
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sukses',
+                        text: response.data.message
                     });
 
-                    // Mengarahkan pengguna ke halaman daftar kuisioner
-                    window.location.href = "/";
+                    // console.log(response.data.message);
+                    // console.log(kuisionerForm);
+                    // console.log(informasiForm);
                 })
                 .catch(function(error) {
-                    // Menampilkan pesan error jika terjadi kesalahan
+                    // Respon gagal
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Terjadi kesalahan saat menyimpan data'
+                    });
+
                     console.log(error);
                 });
-        });
+        }
     </script>
+
     <script>
         function showQuestion() {
             var quisionerId = $('#quisioner').val();

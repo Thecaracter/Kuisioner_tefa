@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('no_telepon');
             $table->unsignedInteger('posisi_id');
             $table->unsignedBigInteger('perusahaan_id');
-            $table->date('tanggal');
+            $table->date('tanggal')->default(now());
             $table->timestamps();
 
             // $table->foreign('user_id')->references('id')->on('users');

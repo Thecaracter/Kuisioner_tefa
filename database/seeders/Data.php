@@ -24,6 +24,11 @@ class Data extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        DB::table('quisioner')->insert([
+            'nama' => 'coba',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
         DB::table('users')->insert([
             'name' => 'Rizqi',

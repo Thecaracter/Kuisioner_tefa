@@ -44,7 +44,8 @@ class LandingController extends Controller
             'posisi' => 'required',
             'perusahaan' => 'required',
             'quisioner' => 'required',
-            'detail_quisioner.*' => 'required',
+            'detail_quisioner.*.name' => 'required',
+            'detail_quisioner.*.value' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -67,16 +68,15 @@ class LandingController extends Controller
         $detailQuisioners = $request->input('detail_quisioner');
 
         if ($quisionerId && $detailQuisioners) {
-            foreach ($detailQuisioners as $detailQuisionerId => $jawaban) {
+            foreach ($detailQuisioners as $detailQuisioner) {
                 $detailPenyimpanan = new DetailPenyimpanan();
                 $detailPenyimpanan->penyimpanan_id = $penyimpanan->id;
-                $detailPenyimpanan->detail_quisioner_id = $detailQuisionerId;
-                $detailPenyimpanan->jawaban = $jawaban;
+                $detailPenyimpanan->detail_quisioner_id = str_replace('satisfaction_', '', $detailQuisioner['name']);
+                $detailPenyimpanan->jawaban = $detailQuisioner['value'];
                 $detailPenyimpanan->save();
             }
         }
 
         return response()->json(['message' => 'Data saved successfully']);
     }
-
 }
