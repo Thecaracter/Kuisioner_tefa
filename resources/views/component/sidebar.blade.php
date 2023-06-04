@@ -39,6 +39,15 @@
             <li class="dropdown {{ Request::path() === 'Penyimpanan' ? 'active' : '' }}">
                 <a href="/penyimpanan" class="nav-link"><i data-feather="hard-drive"></i><span>Penyimpanan</span></a>
             </li>
+            <li class="dropdown {{ Request::path() === 'laporan' ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="database"></i><span>Laporan</span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown {{ Request::path() === 'laporan' ? 'active' : '' }}"><a class="nav-link"
+                            href="/laporan"><i data-feather="user"></i><span>User</span></a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>
