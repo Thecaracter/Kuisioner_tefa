@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         schema::create('penyimpanan', function (Blueprint $table) {
             $table->increments('id');
-            // $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('daerah_id');
             $table->string('nama');
             $table->string('alamat');
             $table->integer('umur');
@@ -22,10 +22,9 @@ return new class extends Migration {
             $table->date('tanggal')->default(now());
             $table->timestamps();
 
-            // $table->foreign('user_id')->references('id')->on('users');
         });
         Schema::table('penyimpanan', function (Blueprint $table) {
-
+            $table->foreign('daerah_id')->references('id')->on('daerah');
             $table->foreign('posisi_id')->references('id')->on('posisi');
             $table->foreign('perusahaan_id')->references('id')->on('perusahaan');
         });

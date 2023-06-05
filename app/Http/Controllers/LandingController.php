@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Daerah;
 use App\Models\DetailPenyimpanan;
 use App\Models\Detail_Quisioner;
 use App\Models\Penyimpanan;
@@ -20,8 +21,9 @@ class LandingController extends Controller
         $selectedQuisionerId = $request->input('quisioner');
         $posisi = Posisi::all();
         $perusahaan = Perusahaan::all();
+        $daerah = Daerah::all();
 
-        return view('landing.landingpage', compact('quisioners', 'selectedQuisionerId', 'posisi', 'perusahaan'));
+        return view('landing.landingpage', compact('quisioners', 'selectedQuisionerId', 'posisi', 'perusahaan', 'daerah'));
     }
 
     public function getQuisioner(Request $request)
@@ -43,6 +45,7 @@ class LandingController extends Controller
             'telepon' => 'required',
             'posisi' => 'required',
             'perusahaan' => 'required',
+            'daerah' => 'required',
             'quisioner' => 'required',
             'detail_quisioner.*.name' => 'required',
             'detail_quisioner.*.value' => 'required',
@@ -60,6 +63,7 @@ class LandingController extends Controller
         $penyimpanan->no_telepon = $request->input('telepon');
         $penyimpanan->posisi_id = $request->input('posisi');
         $penyimpanan->perusahaan_id = $request->input('perusahaan');
+        $penyimpanan->daerah_id = $request->input('daerah');
         $penyimpanan->tanggal = now();
         $penyimpanan->save();
 

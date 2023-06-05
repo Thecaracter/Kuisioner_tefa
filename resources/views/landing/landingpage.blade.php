@@ -8,6 +8,15 @@
                     <h2>Informasi Pribadi</h2>
                     <form id="informasiForm">
                         <div class="form-group">
+                            <label for="perusahaan">Pilih Daerah Asal</label>
+                            <select class="form-control select2" id="daerah" name="daerah" required>
+                                <option value="">Pilih daerah</option>
+                                @foreach ($daerah as $daerahItem)
+                                    <option value="{{ $daerahItem->id }}">{{ $daerahItem->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="nama">Nama:</label>
                             <input type="text" class="form-control" id="nama" name="nama" required>
                         </div>
