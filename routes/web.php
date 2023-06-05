@@ -7,6 +7,7 @@ use App\Http\Controllers\DetailQuisionerController;
 use App\Http\Controllers\JeniQuisionerController;
 use App\Http\Controllers\JenisQuisionerController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenyimpananController;
 use App\Http\Controllers\PerusahaanController;
@@ -84,3 +85,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/jenis-quisioner/{id}', [JenisQuisionerController::class, 'update'])->name('jenisq.update');
     Route::delete('/jenis-quisioner/{id}', [JenisQuisionerController::class, 'destroy'])->name('jenisq.destroy');
 });
+
+
+
+Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+Route::get('/get-detail-penyimpanan/{quisionerId}', [LaporanController::class, 'getDetailPenyimpanan']);

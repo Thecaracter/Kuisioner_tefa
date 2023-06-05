@@ -16,6 +16,6 @@ class DetailPenyimpanan extends Model
 
     public function detailQuisioner()
     {
-        return $this->belongsTo(DetailQuisioner::class, 'detail_quisioner_id');
+        return $this->belongsTo(Detail_Quisioner::class, 'detail_quisioner_id');
     }
 }
