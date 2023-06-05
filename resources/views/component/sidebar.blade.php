@@ -37,16 +37,10 @@
                 </ul>
             </li>
             <li class="dropdown {{ Request::path() === 'Penyimpanan' ? 'active' : '' }}">
-                <a href="/penyimpanan" class="nav-link"><i data-feather="hard-drive"></i><span>Penyimpanan</span></a>
+                <a href="/penyimpanan" class="nav-link"><i data-feather="database"></i><span>Penyimpanan</span></a>
             </li>
             <li class="dropdown {{ Request::path() === 'laporan' ? 'active' : '' }}">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                        data-feather="database"></i><span>Laporan</span></a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown {{ Request::path() === 'laporan' ? 'active' : '' }}"><a class="nav-link"
-                            href="/laporan"><i data-feather="book"></i><span>Laporan</span></a>
-                    </li>
-                </ul>
+                <a href="/laporan" class="nav-link"><i data-feather="hard-drive"></i><span>Laporan</span></a>
             </li>
         </ul>
     </aside>

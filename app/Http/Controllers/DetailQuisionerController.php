@@ -19,8 +19,6 @@ class DetailQuisionerController extends Controller
         // return response()->json($quisioners);
     }
 
-
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([

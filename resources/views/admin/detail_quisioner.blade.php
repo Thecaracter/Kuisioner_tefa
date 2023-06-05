@@ -34,7 +34,16 @@
                                 <input id="searchInput" class="form-control" type="search" placeholder="Search"
                                     aria-label="Search">
                             </div>
-
+                            {{-- <div class="form-group">
+                                <label for="quisioner">Pilih Quisioner</label>
+                                <select class="form-control select2" id="quisioner" name="quisioner"
+                                    onchange="showQuestion()">
+                                    <option value="">Pilih Quisioner</option>
+                                    @foreach ($quis as $var)
+                                        <option value="{{ $var->id }}">{{ $var->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div> --}}
                             <br>
 
                             <div class="table-responsive">
@@ -48,6 +57,7 @@
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                         @foreach ($quisioners as $index => $quisioner)
                                             <tr>
