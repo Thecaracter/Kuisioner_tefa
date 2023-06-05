@@ -84,9 +84,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/jenis-quisioner', [JenisQuisionerController::class, 'store'])->name('jenisq.store');
     Route::post('/jenis-quisioner/{id}', [JenisQuisionerController::class, 'update'])->name('jenisq.update');
     Route::delete('/jenis-quisioner/{id}', [JenisQuisionerController::class, 'destroy'])->name('jenisq.destroy');
+
+
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/get-detail-penyimpanan/{quisionerId}', [LaporanController::class, 'getDetailPenyimpanan']);
 });
-
-
-
-Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
-Route::get('/get-detail-penyimpanan/{quisionerId}', [LaporanController::class, 'getDetailPenyimpanan']);
