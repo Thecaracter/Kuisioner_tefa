@@ -28,6 +28,7 @@
                                             <th class="text-center">Alamat</th>
                                             <th class="text-center">Umur</th>
                                             <th class="text-center">No Telepon</th>
+                                            <th class="text-center">Daerah</th>
                                             <th class="text-center">Perusahaan</th>
                                             <th class="text-center">Posisi</th>
                                             <th class="text-center">Action</th>
@@ -41,6 +42,7 @@
                                                 <td class="text-center">{{ $item->alamat }}</td>
                                                 <td class="text-center">{{ $item->umur }}</td>
                                                 <td class="text-center">{{ $item->no_telepon }}</td>
+                                                <td class="text-center">{{ $item->daerah->nama }}</td>
                                                 <td class="text-center">{{ $item->perusahaan->nama }}</td>
                                                 <td class="text-center">{{ $item->posisi->nama }}</td>
                                                 <td class="align-middle text-center">

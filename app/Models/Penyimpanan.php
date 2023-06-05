@@ -22,9 +22,9 @@ class Penyimpanan extends Model
         'tanggal'
     ];
 
-    public function user()
+    public function daerah()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Daerah::class);
     }
 
     public function posisi()
