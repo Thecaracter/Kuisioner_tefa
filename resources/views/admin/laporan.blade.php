@@ -57,7 +57,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Penilaian Pelanggan 2</h4>
+                            <h4 class="card-title">Perhitungan Index Aspek</h4>
                             <br>
                             <div class="table-responsive">
                                 <table id="example2" class="table table-bordered zero-configuration">
