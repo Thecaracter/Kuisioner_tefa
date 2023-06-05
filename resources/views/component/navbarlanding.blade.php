@@ -34,18 +34,21 @@
     </div>
 </nav>
 
-<!-- Logout Confirmation Modal -->
-{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.5/dist/sweetalert2.min.js"></script>
+
+
 <script>
     function showLogoutConfirmation() {
-        swal({
+        Swal.fire({
             title: "Logout",
             text: "Anda yakin ingin logout?",
             icon: "warning",
-            buttons: true,
+            showCancelButton: true,
+            confirmButtonText: "Logout",
+            cancelButtonText: "Batal",
             dangerMode: true,
-        }).then((willLogout) => {
-            if (willLogout) {
+        }).then((result) => {
+            if (result.isConfirmed) {
                 // Tambahkan URL logout yang sesuai di bawah ini
                 window.location.href = "/keluar";
             }
