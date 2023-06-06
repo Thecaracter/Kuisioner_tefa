@@ -34,14 +34,28 @@ class LaporanController extends Controller
                 ];
             }
 
-            $data[$jenisPertanyaan]['pilihan_1'] += $detail->jawaban === 1 ? 1 : 0;
-            $data[$jenisPertanyaan]['pilihan_2'] += $detail->jawaban === 2 ? 1 : 0;
-            $data[$jenisPertanyaan]['pilihan_3'] += $detail->jawaban === 3 ? 1 : 0;
-            $data[$jenisPertanyaan]['pilihan_4'] += $detail->jawaban === 4 ? 1 : 0;
-            $data[$jenisPertanyaan]['pilihan_5'] += $detail->jawaban === 5 ? 1 : 0;
+            // Perbaikan pada bagian ini
+            switch ($detail->jawaban) {
+                case 1:
+                    $data[$jenisPertanyaan]['pilihan_1']++;
+                    break;
+                case 2:
+                    $data[$jenisPertanyaan]['pilihan_2']++;
+                    break;
+                case 3:
+                    $data[$jenisPertanyaan]['pilihan_3']++;
+                    break;
+                case 4:
+                    $data[$jenisPertanyaan]['pilihan_4']++;
+                    break;
+                case 5:
+                    $data[$jenisPertanyaan]['pilihan_5']++;
+                    break;
+                default:
+                    break;
+            }
         }
 
         return response()->json($data);
     }
-
 }
