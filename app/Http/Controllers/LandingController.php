@@ -23,9 +23,18 @@ class LandingController extends Controller
         $perusahaan = Perusahaan::all();
         $daerah = Daerah::all();
 
-        return view('landing.landingpage', compact('quisioners', 'selectedQuisionerId', 'posisi', 'perusahaan', 'daerah'));
+        return view('landing.landingnew', compact('quisioners', 'selectedQuisionerId', 'posisi', 'perusahaan', 'daerah'));
     }
+    public function landingnew(Request $request)
+    {
+        $quisioners = Quisioner::where('status', 1)->get();
+        $selectedQuisionerId = $request->input('quisioner');
+        $posisi = Posisi::all();
+        $perusahaan = Perusahaan::all();
+        $daerah = Daerah::orderBy('nama', 'asc')->get();
 
+        return view('landing.landingnew', compact('quisioners', 'selectedQuisionerId', 'posisi', 'perusahaan', 'daerah'));
+    }
     public function getQuisioner(Request $request)
     {
         $quisionerId = $request->input('quisioner_id');
