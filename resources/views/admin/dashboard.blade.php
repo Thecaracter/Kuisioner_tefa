@@ -96,7 +96,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        Grafik Pendaftaran per Bulan (Bar Chart)
+                        Grafik Pengisian Quisioner Pendaftaran per Bulan (Bar Chart)
                     </div>
                     <div class="card-body">
                         <canvas id="barChart"></canvas>
@@ -106,7 +106,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        Grafik Pendaftaran per Bulan (Line Chart)
+                        Grafik Pengisian Quisioner per Bulan (Line Chart)
                     </div>
                     <div class="card-body">
                         <canvas id="lineChart"></canvas>
