@@ -89,3 +89,5 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('/get-detail-penyimpanan/{quisionerId}', [LaporanController::class, 'getDetailPenyimpanan']);
 });
+
+Route::get('/get-chart-data/{quisionerId}', [DashboardController::class, 'getChartData'])->name('chart.data');
