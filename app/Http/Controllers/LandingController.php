@@ -64,8 +64,15 @@ class LandingController extends Controller
             return response()->json(['error' => $validator->errors()], 400);
         }
 
+        // Get the currently authenticated user
+        $user = auth()->user();
+
+        // If user is logged in, use their name; otherwise, use a default value
+        $userName = $user ? $user->name : 'Umum';
+
         // Store personal information
         $penyimpanan = new Penyimpanan();
+        $penyimpanan->user = $userName; // Assign the user name
         $penyimpanan->nama = $request->input('nama');
         $penyimpanan->alamat = $request->input('alamat');
         $penyimpanan->umur = $request->input('umur');
@@ -92,4 +99,5 @@ class LandingController extends Controller
 
         return response()->json(['message' => 'Data saved successfully']);
     }
+
 }

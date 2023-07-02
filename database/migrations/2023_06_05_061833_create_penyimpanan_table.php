@@ -13,6 +13,7 @@ return new class extends Migration {
         schema::create('penyimpanan', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('daerah_id');
+            $table->String('user');
             $table->string('nama');
             $table->string('alamat');
             $table->integer('umur');
